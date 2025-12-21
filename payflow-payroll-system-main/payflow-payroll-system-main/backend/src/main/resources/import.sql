@@ -22,20 +22,9 @@ SELECT CURRENT_TIMESTAMP, 'Jane', 'KRA654321', 'Smith', 1, id FROM users WHERE e
 INSERT INTO employees (created_at, first_name, kra_pin, last_name, company_id, user_id)
 SELECT CURRENT_TIMESTAMP, 'Bob', 'KRA999999', 'Williams', 1, id FROM users WHERE email='bob.williams@test.com';
 
--- Add sample salaries (basic + allowances + simple deductions)
-INSERT INTO salaries (allowances, basic_salary, created_at, gross_salary, net_pay, nhif_deduction, nssf_deduction, paye_tax, pension_contribution, taxable_income, total_deductions, employee_id)
-SELECT 20000, 100000, CURRENT_TIMESTAMP, 120000, 100000, 2000, 5000, 13000, 0, 105000, 20000, id FROM employees WHERE first_name='John' AND last_name='Doe';
-INSERT INTO salaries (allowances, basic_salary, created_at, gross_salary, net_pay, nhif_deduction, nssf_deduction, paye_tax, pension_contribution, taxable_income, total_deductions, employee_id)
-SELECT 10000, 80000, CURRENT_TIMESTAMP, 90000, 75000, 1500, 4000, 12500, 0, 82000, 15000, id FROM employees WHERE first_name='Jane' AND last_name='Smith';
-INSERT INTO salaries (allowances, basic_salary, created_at, gross_salary, net_pay, nhif_deduction, nssf_deduction, paye_tax, pension_contribution, taxable_income, total_deductions, employee_id)
-SELECT 5000, 50000, CURRENT_TIMESTAMP, 55000, 45000, 1000, 3000, 8000, 0, 49500, 10000, id FROM employees WHERE first_name='Bob' AND last_name='Williams';
+-- (Optional) Salaries, payroll runs and payslips were intentionally omitted from the import script
+-- due to SQL dialect differences across H2 versions. Use the API to create salaries and runs
+-- for the sample employees or run an ad-hoc SQL step via the H2 console if needed.
 
--- Create a sample payroll run (DRAFT) covering the company employees
-INSERT INTO payroll_runs (approved_by, created_at, created_by, run_date, status, total_deductions, total_gross, total_net, company_id)
-VALUES (NULL, CURRENT_TIMESTAMP, 'super@test.com', CURRENT_TIMESTAMP, 'DRAFT', 45000, 265000, 220000, 1);
-
--- Generate payslips for the sample employees and attach them to the created payroll run
-INSERT INTO payslips (generated_at, net_pay, employee_id, payroll_run_id)
-SELECT CURRENT_TIMESTAMP, s.net_pay, e.id, (SELECT id FROM payroll_runs WHERE created_by='super@test.com' ORDER BY id DESC LIMIT 1)
-FROM salaries s JOIN employees e ON s.employee_id = e.id
-WHERE e.first_name IN ('John','Jane','Bob');
+-- Example: to create payslips for the sample employees, run the payroll generation endpoint
+-- or insert records manually via the H2 console at /h2-console.
