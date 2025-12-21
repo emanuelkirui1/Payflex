@@ -1,15 +1,17 @@
 # Java / Maven
-backend/target/
+services/backend/target/
+target/
 *.class
 *.jar
 *.log
 *.db
+*.zip
 
 # Node / React
-frontend/node_modules/
-frontend/build/
-frontend/.env
-frontend/node_modules/.cache/
+services/frontend/node_modules/
+services/frontend/build/
+services/frontend/.env
+services/frontend/node_modules/.cache/
 
 # IDE / OS
 .vscode/

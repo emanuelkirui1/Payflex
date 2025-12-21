@@ -39,14 +39,14 @@ A full-stack payroll management system with React frontend and Spring Boot backe
 
 1. **Start the backend:**
    ```bash
-   cd backend
+   cd services/backend
    export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
    ./mvnw spring-boot:run
    ```
 
 2. **Start the frontend:**
    ```bash
-   cd frontend
+   cd services/frontend
    npm install
    npm start
    ```
@@ -141,7 +141,7 @@ Pay date tracking
 
 A multi-step approval workflow for payroll runs has been added to support proper review and authorization before payrolls are locked for payment.
 
-- **DB migration:** `backend/src/main/resources/db/migration/V5__add_payroll_approvals.sql` (creates `payroll_run_approvals`).
+- **DB migration:** `services/backend/src/main/resources/db/migration/V5__add_payroll_approvals.sql` (creates `payroll_run_approvals`).
 - **Model:** `PayrollRunApproval` entity stores approver, role, decision, comment and timestamp.
 - **Endpoints:**
   - `POST /api/payroll/runs/{id}/submit` — Submit a DRAFT run for review (role: HR).
@@ -159,7 +159,7 @@ If the application fails to start due to a SpringDoc / Spring HTTP API mismatch,
 java -Dspring.autoconfigure.exclude=org.springdoc.webmvc.ui.SwaggerConfig,org.springdoc.core.configuration.SpringDocConfiguration -jar target/*.jar
 ```
 
-Or permanently fix the problem by updating the `springdoc-openapi` dependency in `backend/pom.xml` to a version compatible with Spring Boot 2.7 (for example `1.6.x`), then rebuild to restore the Swagger UI.
+Or permanently fix the problem by updating the `springdoc-openapi` dependency in `services/backend/pom.xml` to a version compatible with Spring Boot 2.7 (for example `1.6.x`), then rebuild to restore the Swagger UI.
 
 ### 6. Payslip Management
 Payslip Features:
@@ -344,7 +344,7 @@ Cloud deployment (AWS/GCP)
 
 1. Navigate to the backend directory:
    ```bash
-   cd backend
+   cd services/backend
    ```
 
 2. Install dependencies and build:
@@ -356,7 +356,7 @@ Cloud deployment (AWS/GCP)
 
 1. Navigate to the frontend directory:
    ```bash
-   cd frontend
+   cd services/frontend
    ```
 
 2. Install dependencies:
@@ -368,7 +368,7 @@ Cloud deployment (AWS/GCP)
 
 ### Backend
 
-1. From the backend directory:
+1. From the services/backend directory:
    ```bash
    mvn spring-boot:run
    ```
@@ -377,7 +377,7 @@ Cloud deployment (AWS/GCP)
 
 ### Frontend
 
-1. From the frontend directory:
+1. From the services/frontend directory:
    ```bash
    npm start
    ```
@@ -391,7 +391,7 @@ API documentation is available via Swagger UI at:
 
 ## Database
 
-The application uses H2 in-memory database for development. Data is persisted in `backend/testdb.mv.db`.
+The application uses H2 in-memory database for development. Data is persisted in `services/backend/testdb.mv.db`.
 
 For production, configure PostgreSQL or MySQL in `application.properties`.
 
@@ -414,13 +414,13 @@ For production, configure PostgreSQL or MySQL in `application.properties`.
 
 - **If Swagger/OpenAPI fails to start:**
   - Known issue: some `springdoc-openapi` versions expect newer Spring APIs and can throw `NoClassDefFoundError: org.springframework.http.HttpStatusCode`.
-  - **Fix (recommended):** Update `backend/pom.xml` to use `org.springdoc:springdoc-openapi-ui:1.6.15` and rebuild (this repo has that change).
+  - **Fix (recommended):** Update `services/backend/pom.xml` to use `org.springdoc:springdoc-openapi-ui:1.6.15` and rebuild (this repo has that change).
   - **Temporary workaround:** Start the app excluding springdoc auto-config:
     ```bash
     java -Dspring.autoconfigure.exclude=org.springdoc.webmvc.ui.SwaggerConfig,org.springdoc.core.configuration.SpringDocConfiguration -jar target/*.jar
     ```
 
-- **H2 Console:** available at `http://localhost:8080/h2-console` (database file: `backend/testdb.mv.db`).
+- **H2 Console:** available at `http://localhost:8080/h2-console` (database file: `services/backend/testdb.mv.db`).
 
 - **New: Payroll Approval Workflow (DB + API):**
   - Flyway migration: `V5__add_payroll_approvals.sql` creates table `payroll_run_approvals` to store approval history.
