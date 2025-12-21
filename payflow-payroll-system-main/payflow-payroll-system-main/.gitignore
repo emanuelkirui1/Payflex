@@ -1,0 +1,19 @@
+# Java / Maven
+backend/target/
+*.class
+*.jar
+*.log
+*.db
+
+# Node / React
+frontend/node_modules/
+frontend/build/
+frontend/.env
+frontend/node_modules/.cache/
+
+# IDE / OS
+.vscode/
+.DS_Store
+
+# Docker
+*.pid

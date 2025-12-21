@@ -1,0 +1,131 @@
+nohup: ignoring input
+[WARNING] Unable to find the root directory. Create a .mvn directory in the root directory or add the root="true" attribute on the root project's model to identify it.
+[INFO] Scanning for projects...
+[INFO] Loaded 21802 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[WARNING] 
+[WARNING] 28 problems were encountered while building the effective model for 'com.payflow:payroll-system:jar:0.0.1-SNAPSHOT' (use -e to see details)
+[WARNING] 
+[WARNING] Total model problems reported: 28
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ---------------------< com.payflow:payroll-system >---------------------
+[INFO] Building payroll-system 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Loaded 74 auto-discovered prefixes for remote repository apache.snapshots (prefixes-apache.snapshots-c1d4c55f9308e5ac18a4069bed41dca64d85c515.txt)
+[WARNING] Could not transfer metadata /.meta/prefixes.txt from/to plexus.snapshots-9dedea94451709299d055319c137abeb30aacdef (https://oss.sonatype.org/content/repositories/plexus-snapshots): HTTP Status: 503
+[INFO] 
+[INFO] >>> spring-boot:3.0.0:run (default-cli) > test-compile @ payroll-system >>>
+[WARNING] Could not transfer metadata /.meta/prefixes.txt from/to spring-release-e22ad65be0b5fee6143d584bba6f2b61b37bb6bf (https://repo.spring.io/release): HTTP Status: 401
+[WARNING] Could not transfer metadata /.meta/prefixes.txt from/to spring-libs-release-57e3c2a1a1e640c1b2210cd5477b574735ef7b6c (https://repo.spring.io/libs-release): HTTP Status: 401
+[WARNING] Could not transfer metadata /.meta/prefixes.txt from/to spring-libs-snapshot-e9d2972af832007faaf434a8b3ac0c5f1fee6ec2 (https://repo.spring.io/libs-snapshot): HTTP Status: 401
+[WARNING] 29 problems were encountered while building the effective model for 'org.springframework.data:spring-data-jpa:jar:3.0.0' during dependency collection step for project (use -X to see details)
+[INFO] Loaded 21802 auto-discovered prefixes for remote repository maven-central (prefixes-maven-central-de66ab544dabb92499170649134bc3bd0ea8afac.txt)
+[WARNING] Could not transfer metadata /.meta/prefixes.txt from/to flyway-repo-a145cca389e86ec6f061be8a47697abc8c480f87 (https://nexus.flywaydb.org/repository/flyway/): Connection to https://nexus.flywaydb.org/repository/flyway/ refused
+[WARNING] 28 problems were encountered while building the effective model for 'org.springdoc:springdoc-openapi-starter-webmvc-ui:jar:2.0.2' during dependency collection step for project (use -X to see details)
+[WARNING] 28 problems were encountered while building the effective model for 'org.springdoc:springdoc-openapi-starter-webmvc-api:jar:2.0.2' during dependency collection step for project (use -X to see details)
+[WARNING] 29 problems were encountered while building the effective model for 'org.springframework.data:spring-data-commons:jar:3.0.0' during dependency collection step for project (use -X to see details)
+[WARNING] 28 problems were encountered while building the effective model for 'org.springdoc:springdoc-openapi-starter-common:jar:2.0.2' during dependency collection step for project (use -X to see details)
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ payroll-system ---
+[INFO] Copying 2 resources
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ payroll-system ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 26 source files to /workspaces/payflow-payroll-system/backend/target/classes
+[INFO] /workspaces/payflow-payroll-system/backend/src/main/java/com/payflow/payrollsystem/config/JwtAuthenticationFilter.java: Some input files use or override a deprecated API.
+[INFO] /workspaces/payflow-payroll-system/backend/src/main/java/com/payflow/payrollsystem/config/JwtAuthenticationFilter.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ payroll-system ---
+[INFO] skip non existing resourceDirectory /workspaces/payflow-payroll-system/backend/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ payroll-system ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] <<< spring-boot:3.0.0:run (default-cli) < test-compile @ payroll-system <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.0.0:run (default-cli) @ payroll-system ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2025-12-19T21:28:44.912Z  INFO 90906 --- [           main] c.p.p.PayrollSystemApplication           : Starting PayrollSystemApplication using Java 25.0.1 with PID 90906 (/workspaces/payflow-payroll-system/backend/target/classes started by codespace in /workspaces/payflow-payroll-system/backend)
+2025-12-19T21:28:44.916Z  INFO 90906 --- [           main] c.p.p.PayrollSystemApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-12-19T21:28:45.870Z  INFO 90906 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-19T21:28:45.921Z  INFO 90906 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 45 ms. Found 8 JPA repository interfaces.
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.apache.tomcat.jni.Library in an unnamed module (file:/home/codespace/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.1/tomcat-embed-core-10.1.1.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+2025-12-19T21:28:46.420Z  INFO 90906 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2025-12-19T21:28:46.427Z  INFO 90906 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-19T21:28:46.427Z  INFO 90906 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2025-12-19T21:28:46.495Z  INFO 90906 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-19T21:28:46.495Z  INFO 90906 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1436 ms
+2025-12-19T21:28:46.545Z  INFO 90906 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-19T21:28:46.746Z  INFO 90906 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./testdb user=SA
+2025-12-19T21:28:46.748Z  INFO 90906 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-19T21:28:46.758Z  INFO 90906 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./testdb'
+2025-12-19T21:28:46.857Z  INFO 90906 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-19T21:28:46.882Z  INFO 90906 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.5.Final
+2025-12-19T21:28:47.004Z  WARN 90906 --- [           main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2025-12-19T21:28:47.083Z  INFO 90906 --- [           main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+Hibernate: drop table if exists audit_logs cascade 
+Hibernate: drop table if exists billing_plans cascade 
+Hibernate: drop table if exists companies cascade 
+Hibernate: drop table if exists company_billing cascade 
+Hibernate: drop table if exists employees cascade 
+Hibernate: drop table if exists payslips cascade 
+Hibernate: drop table if exists salaries cascade 
+Hibernate: drop table if exists taxes cascade 
+Hibernate: drop table if exists users cascade 
+Hibernate: create table audit_logs (id bigint generated by default as identity, action varchar(255), timestamp timestamp(6), user_id bigint, primary key (id))
+Hibernate: create table billing_plans (id bigint generated by default as identity, created_at timestamp(6), description varchar(255), features TEXT, name varchar(255), price numeric(10,2), primary key (id))
+Hibernate: create table companies (id bigint generated by default as identity, created_at timestamp(6), name varchar(255), primary key (id))
+Hibernate: create table company_billing (id bigint generated by default as identity, end_date timestamp(6), start_date timestamp(6), status varchar(255), billing_plan_id bigint, company_id bigint, primary key (id))
+Hibernate: create table employees (id bigint generated by default as identity, created_at timestamp(6), first_name varchar(255), kra_pin varchar(255), last_name varchar(255), company_id bigint, user_id bigint, primary key (id))
+Hibernate: create table payslips (id bigint generated by default as identity, generated_at timestamp(6), net_pay numeric(12,2), employee_id bigint, primary key (id))
+Hibernate: create table salaries (id bigint generated by default as identity, allowances numeric(12,2), basic_salary numeric(12,2), created_at timestamp(6), employee_id bigint, primary key (id))
+Hibernate: create table taxes (id bigint generated by default as identity, created_at timestamp(6), tax_amount numeric(12,2), salary_id bigint, primary key (id))
+Hibernate: create table users (id bigint generated by default as identity, created_at timestamp(6), email varchar(255), enabled boolean, password varchar(255), role varchar(255), company_id bigint, primary key (id))
+Hibernate: alter table if exists audit_logs add constraint FKjs4iimve3y0xssbtve5ysyef0 foreign key (user_id) references users
+Hibernate: alter table if exists company_billing add constraint FKgx0btlvujve5ofpyp3xp4klci foreign key (billing_plan_id) references billing_plans
+Hibernate: alter table if exists company_billing add constraint FK61ccn0bpoxlvtj9ianvdoc7ig foreign key (company_id) references companies
+Hibernate: alter table if exists employees add constraint FK1ekpcbo0lmdx6ou8e3fh9j4lq foreign key (company_id) references companies
+Hibernate: alter table if exists employees add constraint FK69x3vjuy1t5p18a5llb8h2fjx foreign key (user_id) references users
+Hibernate: alter table if exists payslips add constraint FKi2u90djkfkqooebb9b26gxqmi foreign key (employee_id) references employees
+Hibernate: alter table if exists salaries add constraint FK1utmvufusgyktdtbmo4xfas10 foreign key (employee_id) references employees
+Hibernate: alter table if exists taxes add constraint FKoq9obpoyajrx9mopint84w1q4 foreign key (salary_id) references salaries
+Hibernate: alter table if exists users add constraint FKin8gn4o1hpiwe6qe4ey7ykwq7 foreign key (company_id) references companies
+2025-12-19T21:28:47.771Z  INFO 90906 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-12-19T21:28:47.776Z  INFO 90906 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-19T21:28:48.389Z  WARN 90906 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-19T21:28:48.420Z  WARN 90906 --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 414df12f-ce37-4935-ab86-df8f41c7ecc2
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::invokeCleaner has been called by nonapi.io.github.classgraph.utils.FileUtils (file:/home/codespace/.m2/repository/io/github/classgraph/classgraph/4.8.149/classgraph-4.8.149.jar)
+WARNING: Please consider reporting this to the maintainers of class nonapi.io.github.classgraph.utils.FileUtils
+WARNING: sun.misc.Unsafe::invokeCleaner will be removed in a future release
+2025-12-19T21:28:49.428Z  INFO 90906 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6771efaa, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@446fb72e, org.springframework.security.web.context.SecurityContextHolderFilter@27adb90f, org.springframework.security.web.header.HeaderWriterFilter@1be4f05c, org.springframework.web.filter.CorsFilter@26caf4b6, org.springframework.security.web.authentication.logout.LogoutFilter@36a8ebca, com.payflow.payrollsystem.config.JwtAuthenticationFilter@52c9d3d0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3b9c05f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@288915a1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4411a0fe, org.springframework.security.web.session.SessionManagementFilter@70a91d72, org.springframework.security.web.access.ExceptionTranslationFilter@34c2e03d, org.springframework.security.web.access.intercept.AuthorizationFilter@28b16193]
+2025-12-19T21:28:49.746Z  INFO 90906 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2025-12-19T21:28:49.755Z  INFO 90906 --- [           main] c.p.p.PayrollSystemApplication           : Started PayrollSystemApplication in 5.201 seconds (process running for 5.524)
+2025-12-19T21:28:59.716Z  INFO 90906 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-19T21:28:59.718Z  INFO 90906 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-19T21:28:59.720Z  INFO 90906 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
