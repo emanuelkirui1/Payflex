@@ -23,6 +23,12 @@ public class User {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
+    @Column(name = "promoted_to_hr_at")
+    private LocalDateTime promotedToHrAt;
+
+    @Column(name = "promoted_to_company_admin_at")
+    private LocalDateTime promotedToCompanyAdminAt;
+
     @OneToMany(mappedBy = "user")
     private List<Employee> employees;
 
@@ -51,6 +57,12 @@ public class User {
 
     public LocalDateTime getCreatedAt() { return createdAt; }
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+
+    public LocalDateTime getPromotedToHrAt() { return promotedToHrAt; }
+    public void setPromotedToHrAt(LocalDateTime promotedToHrAt) { this.promotedToHrAt = promotedToHrAt; }
+
+    public LocalDateTime getPromotedToCompanyAdminAt() { return promotedToCompanyAdminAt; }
+    public void setPromotedToCompanyAdminAt(LocalDateTime promotedToCompanyAdminAt) { this.promotedToCompanyAdminAt = promotedToCompanyAdminAt; }
 
     public List<Employee> getEmployees() { return employees; }
     public void setEmployees(List<Employee> employees) { this.employees = employees; }
