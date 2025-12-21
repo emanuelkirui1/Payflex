@@ -42,7 +42,7 @@ public class PayrollServiceTest {
     @BeforeEach
     void setup() {
         payrollService = new PayrollService(employeeRepository, salaryRepository, taxRepository, payslipRepository,
-                auditLogRepository, userRepository, taxCalculationService, deductionService, pensionService);
+                payrollRunRepository, auditLogRepository, userRepository, taxCalculationService, deductionService, pensionService);
     }
 
     @Test

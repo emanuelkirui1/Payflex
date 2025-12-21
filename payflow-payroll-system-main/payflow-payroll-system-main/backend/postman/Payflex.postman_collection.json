@@ -1,0 +1,69 @@
+{
+  "info": {
+    "name": "Payflex - Example API",
+    "_postman_id": "payflex-example",
+    "description": "Small collection with example requests for payroll approval flows",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth - Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": { "mode": "raw", "raw": "{\"email\": \"john.doe@test.com\", \"password\": \"password\"}" },
+        "url": { "raw": "http://localhost:8081/api/auth/login", "protocol": "http", "host": ["localhost"], "port": "8081", "path": ["api","auth","login"] }
+      }
+    },
+    {
+      "name": "Get employees (HR/FINANCE)",
+      "request": {
+        "method": "GET",
+        "header": [ { "key": "Authorization", "value": "Bearer {{jwt}}" } ],
+        "url": { "raw": "http://localhost:8081/api/payroll/employees", "protocol": "http", "host": ["localhost"], "port": "8081", "path": ["api","payroll","employees"] }
+      }
+    },
+    {
+      "name": "Submit payroll run for review",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Authorization", "value": "Bearer {{jwt}}" } ],
+        "url": { "raw": "http://localhost:8081/api/payroll/runs/1/submit", "protocol": "http", "host": ["localhost"], "port": "8081", "path": ["api","payroll","runs","1","submit"] }
+      }
+    },
+    {
+      "name": "Approve payroll run (FINANCE)",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Authorization", "value": "Bearer {{jwt}}" }, { "key": "Content-Type", "value": "application/json" } ],
+        "body": { "mode": "raw", "raw": "{ \"comment\": \"Approved by finance\" }" },
+        "url": { "raw": "http://localhost:8081/api/payroll/runs/1/approve", "protocol": "http", "host": ["localhost"], "port": "8081", "path": ["api","payroll","runs","1","approve"] }
+      }
+    },
+    {
+      "name": "Reject payroll run (FINANCE)",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Authorization", "value": "Bearer {{jwt}}" }, { "key": "Content-Type", "value": "application/json" } ],
+        "body": { "mode": "raw", "raw": "{ \"comment\": \"Please correct payroll items\" }" },
+        "url": { "raw": "http://localhost:8081/api/payroll/runs/1/reject", "protocol": "http", "host": ["localhost"], "port": "8081", "path": ["api","payroll","runs","1","reject"] }
+      }
+    },
+    {
+      "name": "List approvals for run",
+      "request": {
+        "method": "GET",
+        "header": [ { "key": "Authorization", "value": "Bearer {{jwt}}" } ],
+        "url": { "raw": "http://localhost:8081/api/payroll/runs/1/approvals", "protocol": "http", "host": ["localhost"], "port": "8081", "path": ["api","payroll","runs","1","approvals"] }
+      }
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": { "exec": [ "// Set a demo JWT in the {{jwt}} variable if you have one" ], "type": "text/javascript" }
+    }
+  ]
+}
