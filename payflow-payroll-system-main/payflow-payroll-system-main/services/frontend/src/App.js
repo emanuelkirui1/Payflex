@@ -20,6 +20,7 @@ function App() {
           <Route path="/superadmin" element={<SuperAdminDashboard />} />
           <Route path="/audits" element={<AuditLogs />} />
           <Route path="/leaves" element={<LeaveRequests />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
     </Router>
