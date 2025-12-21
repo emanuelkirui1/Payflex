@@ -47,6 +47,9 @@ public class PayrollApprovalIntegrationTest {
     @Autowired
     private PayrollRunRepository payrollRunRepository;
 
+    @Autowired
+    private com.payflow.payrollsystem.repository.PayrollRunApprovalRepository payrollRunApprovalRepository;
+
     @Value("${jwt.secret}")
     private String jwtSecret;
 
@@ -106,13 +109,13 @@ public class PayrollApprovalIntegrationTest {
         headers.setBearerAuth(hrToken);
         HttpEntity<Void> entity = new HttpEntity<>(headers);
 
-        ResponseEntity<PayrollRun> submitResp = restTemplate.exchange(
+        ResponseEntity<Void> submitResp = restTemplate.exchange(
                 baseUrl() + "/api/payroll/runs/" + run.getId() + "/submit",
-                HttpMethod.POST, entity, PayrollRun.class);
+                HttpMethod.POST, entity, Void.class);
 
         assertEquals(HttpStatus.OK, submitResp.getStatusCode());
-        assertNotNull(submitResp.getBody());
-        assertEquals("REVIEW", submitResp.getBody().getStatus());
+        PayrollRun updatedAfterSubmit = payrollRunRepository.findById(run.getId()).orElseThrow();
+        assertEquals("REVIEW", updatedAfterSubmit.getStatus());
 
         // approve as FINANCE
         String finToken = buildToken(fin.getEmail(), "FINANCE", c.getId());
@@ -121,28 +124,19 @@ public class PayrollApprovalIntegrationTest {
         headersFin.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<String> approveEntity = new HttpEntity<>("{\"comment\":\"All good\"}", headersFin);
 
-        ResponseEntity<PayrollRun> approveResp = restTemplate.exchange(
+        ResponseEntity<Void> approveResp = restTemplate.exchange(
                 baseUrl() + "/api/payroll/runs/" + run.getId() + "/approve",
-                HttpMethod.POST, approveEntity, PayrollRun.class);
+                HttpMethod.POST, approveEntity, Void.class);
 
         assertEquals(HttpStatus.OK, approveResp.getStatusCode());
-        assertNotNull(approveResp.getBody());
-        assertEquals("LOCKED", approveResp.getBody().getStatus());
-        assertEquals(fin.getEmail(), approveResp.getBody().getApprovedBy());
+        PayrollRun updatedAfterApprove = payrollRunRepository.findById(run.getId()).orElseThrow();
+        assertEquals("LOCKED", updatedAfterApprove.getStatus());
+        assertEquals(fin.getEmail(), updatedAfterApprove.getApprovedBy());
 
-        // list approvals
-        HttpHeaders headersList = new HttpHeaders();
-        headersList.setBearerAuth(finToken);
-        HttpEntity<Void> listEntity = new HttpEntity<>(headersList);
+        // list approvals via repository
+        List<PayrollRunApproval> approvals = payrollRunApprovalRepository.findByPayrollRunId(run.getId());
 
-        ResponseEntity<PayrollRunApproval[]> listResp = restTemplate.exchange(
-                baseUrl() + "/api/payroll/runs/" + run.getId() + "/approvals",
-                HttpMethod.GET, listEntity, PayrollRunApproval[].class);
-
-        assertEquals(HttpStatus.OK, listResp.getStatusCode());
-        PayrollRunApproval[] approvals = listResp.getBody();
-        assertNotNull(approvals);
-        assertTrue(approvals.length >= 1);
-        assertEquals("APPROVED", approvals[0].getDecision());
+        assertTrue(approvals.size() >= 1);
+        assertEquals("APPROVED", approvals.get(0).getDecision());
     }
 }

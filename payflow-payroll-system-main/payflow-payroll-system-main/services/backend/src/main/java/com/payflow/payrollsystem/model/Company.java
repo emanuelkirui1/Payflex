@@ -18,6 +18,7 @@ public class Company {
     private LocalDateTime createdAt;
 
     @OneToMany(mappedBy = "company")
+    @com.fasterxml.jackson.annotation.JsonIgnore
     private List<User> users;
 
     @OneToMany(mappedBy = "company")
