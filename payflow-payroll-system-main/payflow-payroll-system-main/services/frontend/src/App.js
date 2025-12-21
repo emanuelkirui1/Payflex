@@ -6,6 +6,7 @@ import Payroll from './pages/Payroll';
 import CompanyRegistration from './pages/CompanyRegistration';
 import SuperAdminDashboard from './pages/SuperAdminDashboard';
 import AuditLogs from './pages/AuditLogs';
+import LeaveRequests from './pages/LeaveRequests';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/register" element={<CompanyRegistration />} />
           <Route path="/superadmin" element={<SuperAdminDashboard />} />
           <Route path="/audits" element={<AuditLogs />} />
+          <Route path="/leaves" element={<LeaveRequests />} />
         </Routes>
       </div>
     </Router>
