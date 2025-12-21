@@ -55,6 +55,11 @@ class RoleChangeServiceTest {
         assertEquals("HR", updated.getRole());
         assertNotNull(updated.getPromotedToHrAt());
 
+        // Verify notifications were created/sent
+        String expectedMessage = String.format("Your role has changed from %s to %s", "EMPLOYEE", "HR");
+        verify(notificationService, times(1)).createInAppNotification(eq(updated), eq(expectedMessage));
+        verify(notificationService, times(1)).sendEmailNotification(eq(updated), eq("Role changed"), eq(expectedMessage));
+
         // Simulate persisted state
         when(userRepository.findById(20L)).thenReturn(Optional.of(updated));
 
@@ -76,5 +81,10 @@ class RoleChangeServiceTest {
         User updated = roleChangeService.changeRole(2L, "COMPANY_ADMIN");
         assertEquals("COMPANY_ADMIN", updated.getRole());
         assertNotNull(updated.getPromotedToCompanyAdminAt());
+
+        // Verify notifications
+        String expectedMessage = String.format("Your role has changed from %s to %s", "EMPLOYEE", "COMPANY_ADMIN");
+        verify(notificationService, times(1)).createInAppNotification(eq(updated), eq(expectedMessage));
+        verify(notificationService, times(1)).sendEmailNotification(eq(updated), eq("Role changed"), eq(expectedMessage));
     }
 }
