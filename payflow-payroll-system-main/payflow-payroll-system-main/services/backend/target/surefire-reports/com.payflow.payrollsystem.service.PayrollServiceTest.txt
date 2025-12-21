@@ -1,4 +1,26 @@
 -------------------------------------------------------------------------------
 Test set: com.payflow.payrollsystem.service.PayrollServiceTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.074 s - in com.payflow.payrollsystem.service.PayrollServiceTest
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.173 s <<< FAILURE! - in com.payflow.payrollsystem.service.PayrollServiceTest
+addEmployee_creates_audit_with_user  Time elapsed: 0.173 s  <<< ERROR!
+org.mockito.exceptions.misusing.PotentialStubbingProblem: 
+
+Strict stubbing argument mismatch. Please check:
+ - this invocation of 'findByEmail' method:
+    userRepository.findByEmail("admin@c.com");
+    -> at com.payflow.payrollsystem.service.PayrollService.logAudit(PayrollService.java:57)
+ - has following stubbing(s) with different arguments:
+    1. userRepository.findByEmail(
+    "test@example.com"
+);
+      -> at com.payflow.payrollsystem.service.PayrollServiceTest.addEmployee_creates_audit_with_user(PayrollServiceTest.java:52)
+Typically, stubbing argument mismatch indicates user mistake when writing tests.
+Mockito fails early so that you can debug potential problem easily.
+However, there are legit scenarios when this exception generates false negative signal:
+  - stubbing the same method multiple times using 'given().will()' or 'when().then()' API
+    Please use 'will().given()' or 'doReturn().when()' API for stubbing.
+  - stubbed method is intentionally invoked with different arguments by code under test
+    Please use default or 'silent' JUnit Rule (equivalent of Strictness.LENIENT).
+For more information see javadoc for PotentialStubbingProblem class.
+	at com.payflow.payrollsystem.service.PayrollServiceTest.addEmployee_creates_audit_with_user(PayrollServiceTest.java:62)
+

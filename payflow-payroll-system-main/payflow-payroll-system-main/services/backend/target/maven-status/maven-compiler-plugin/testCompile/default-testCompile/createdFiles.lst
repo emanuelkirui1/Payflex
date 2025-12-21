@@ -1,5 +1,7 @@
-com/payflow/payrollsystem/service/RoleChangeServiceTest.class
 com/payflow/payrollsystem/integration/PayrollApprovalIntegrationTest.class
+com/payflow/payrollsystem/controller/ProfileControllerTest.class
+com/payflow/payrollsystem/controller/NotificationControllerTest.class
+com/payflow/payrollsystem/service/RoleChangeServiceTest.class
 com/payflow/payrollsystem/service/PayrollApprovalServiceTest.class
 com/payflow/payrollsystem/service/LeaveRequestServiceTest.class
 com/payflow/payrollsystem/integration/LeaveRequestIntegrationTest.class

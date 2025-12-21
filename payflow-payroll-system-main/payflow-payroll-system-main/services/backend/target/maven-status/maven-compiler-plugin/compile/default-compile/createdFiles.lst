@@ -1,5 +1,6 @@
 com/payflow/payrollsystem/repository/NotificationRepository.class
 com/payflow/payrollsystem/repository/LeaveRequestRepository.class
+com/payflow/payrollsystem/dto/UserSummaryDto.class
 com/payflow/payrollsystem/model/LeaveRequest.class
 com/payflow/payrollsystem/model/Notification.class
 com/payflow/payrollsystem/service/PayslipPdfService.class
@@ -12,6 +13,7 @@ com/payflow/payrollsystem/model/Payslip.class
 com/payflow/payrollsystem/config/JwtAuthenticationFilter.class
 com/payflow/payrollsystem/service/PayrollService.class
 com/payflow/payrollsystem/repository/EmployeeRepository.class
+com/payflow/payrollsystem/controller/NotificationController.class
 com/payflow/payrollsystem/repository/CompanyRepository.class
 com/payflow/payrollsystem/controller/SuperAdminController.class
 com/payflow/payrollsystem/service/RoleChangeService.class
@@ -41,6 +43,7 @@ com/payflow/payrollsystem/service/TaxCalculationService.class
 com/payflow/payrollsystem/repository/PayrollRunApprovalRepository.class
 com/payflow/payrollsystem/model/LeaveRequestApproval.class
 com/payflow/payrollsystem/model/PayrollRun.class
+com/payflow/payrollsystem/controller/ProfileController.class
 com/payflow/payrollsystem/repository/TaxRepository.class
 com/payflow/payrollsystem/model/PayrollRunApproval.class
 com/payflow/payrollsystem/repository/UserRepository.class
@@ -50,5 +53,6 @@ com/payflow/payrollsystem/controller/RoleController.class
 com/payflow/payrollsystem/repository/TaxBracketRepository.class
 com/payflow/payrollsystem/repository/BillingPlanRepository.class
 com/payflow/payrollsystem/repository/SalaryRepository.class
+com/payflow/payrollsystem/dto/ProfileDto.class
 com/payflow/payrollsystem/dto/RoleChangeRequest.class
 com/payflow/payrollsystem/config/SecurityConfig.class
