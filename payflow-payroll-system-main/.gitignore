@@ -1,0 +1,42 @@
+# Java / Maven
+services/backend/target/
+target/
+*.class
+*.jar
+*.log
+*.db
+*.zip
+
+# Node / React
+services/frontend/node_modules/
+services/frontend/build/
+services/frontend/.env
+services/frontend/node_modules/.cache/
+
+# IDE / OS
+.vscode/
+.DS_Store
+
+# Docker
+*.pid
+
+# Java
+target/
+*.jar
+*.log
+
+# Databases
+*.db
+*.trace.db
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Node
+node_modules/
+
+# Logs
+nohup.out
+
